@@ -216,7 +216,7 @@ const Game = (props) => {
       <Row>
         <Col md={4}>{rodadaP1 && <h3>vez do player 1</h3>}</Col>
         <Col md={{ span: 4, offset: 4 }}>
-          {!rodadaP1 && <h3>vez do computador</h3>}
+          {!rodadaP1 && <h3>vez do player 2</h3>}
         </Col>
       </Row>
       <Row>
