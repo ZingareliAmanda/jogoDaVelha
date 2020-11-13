@@ -1,102 +1,40 @@
 {
-"jogador": [
+  "jogador": [
     {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
+      "id": 1,
+      "nome": "fulano",
+      "movimentos": 3,
+      "tempo": 10
     },
     {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
+      "id": 2,
+      "nome": "fulano da silva",
+      "movimentos": 7,
+      "tempo": 13
     },
     {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
+      "tempo": 7,
+      "movimentos": 5,
+      "nome": "AAAAAAAAAAAAAAAAAAAAA",
+      "id": 3
     },
     {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
+      "tempo": 11,
+      "movimentos": 5,
+      "nome": "gabire",
+      "id": 4
     },
     {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
+      "tempo": 7,
+      "movimentos": 3,
+      "nome": "AAAAAAAAAAAA",
+      "id": 5
     },
     {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
-    },
-    {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
-    },
-    {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
-    },
-    {
-        "id": 1,
-        "nome": "fulano",
-        "movimentos": 3,
-        "tempo": 32.00
-    },{
-        "id": 2,
-        "nome": "fulano",
-        "movimentos": 34,
-        "tempo": 2.00
+      "tempo": 7,
+      "movimentos": 3,
+      "nome": "YANA",
+      "id": 6
     }
-]}
+  ]
+}

@@ -1,14 +1,18 @@
 import "./Game.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Axios from "axios";
 
 const Game = (props) => {
+  let t = useHistory();
+  const [movimentos, setMovimentos] = useState(0);
   let tempTimer = 0;
   const [first, setFirst] = useState(true);
   const [nome, setNome] = useState(true);
+  const [venceu, setVenceu] = useState(false);
   const [rodadaP1, setRodadaP1] = useState(true);
   const [timer, setTimer] = useState(0);
   const [jogadas, setJogadas] = useState([
@@ -33,6 +37,7 @@ const Game = (props) => {
   };
 
   const verificaVencedor = () => {
+    let jogadasTemp = [];
     const padroesVitoria = [
       [0, 1, 2],
       [0, 4, 8],
@@ -46,7 +51,6 @@ const Game = (props) => {
 
     let value = rodadaP1 ? "X" : "O";
     let index = -1;
-    let jogadasTemp = [];
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         index++;
@@ -55,34 +59,44 @@ const Game = (props) => {
         }
       }
     }
-
     padroesVitoria.forEach((padraoVitoria) => {
       if (checker(jogadasTemp, padraoVitoria)) {
+        setVenceu(true);
       }
     });
-
-    return null;
   };
 
   let checker = (arr, target) => target.every((v) => arr.includes(v));
 
   const jogada = (a, b) => {
-    let jogads = jogadas;
+    let jogadasX = jogadas;
     if (first) {
       counter();
       setFirst(false);
     }
-    if (jogads[a][b] == "") {
-      jogads[a][b] = rodadaP1 ? "X" : "O";
-      setJogadas(jogads);
+    if (jogadasX[a][b] == "" && !venceu) {
+      if (rodadaP1) setMovimentos(movimentos + 1);
+      jogadasX[a][b] = rodadaP1 ? "X" : "O";
+      setJogadas(jogadasX);
       verificaVencedor();
       setRodadaP1(!rodadaP1);
     }
   };
 
   const salvarJogada = (nome) => {
-    
-  }
+    debugger;
+    Axios.post("http://localhost:3001/jogador", {
+      tempo: timer,
+      movimentos: movimentos,
+      nome: nome,
+    }).then((response) => {
+      t.push("/")
+    });
+  };
+
+  const onchangeNome = (value) => {
+    setNome(value);
+  };
 
   return (
     <Container className="mt-5">
@@ -103,19 +117,24 @@ const Game = (props) => {
           </a>
         </div>
       </div>
-      <Container>
-        <Row className="justify-content-center mt-5">
-          <h1>Parabens vc venceu!!!!!!!!</h1>
-        </Row>
-        <Row className="justify-content-center">
-          <Col md={4}>
-            <Form.Control placeholder="insira seu nome" />
-          </Col>
-          <Col md={1}>
-            <Button onclick={() => salvarJogada(nome)}>salvar</Button>
-          </Col>
-        </Row>
-      </Container>
+      {venceu && (
+        <Container>
+          <Row className="justify-content-center mt-5">
+            <h1>Parabens vc venceu!!!!!!!!</h1>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={4}>
+              <Form.Control
+                onChange={(e) => onchangeNome(e.target.value)}
+                placeholder="insira seu nome"
+              />
+            </Col>
+            <Col md={1}>
+              <Button onClick={() => salvarJogada(nome)}>salvar</Button>
+            </Col>
+          </Row>
+        </Container>
+      )}
 
       <div className="d-flex justify-content-center mt-5">
         <h1>JOGO DA VELHA </h1>
